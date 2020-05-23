@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/scss/index.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -39,7 +39,12 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources'],
+  styleResources: {
+    scss: [
+      '@/assets/scss/index.scss' // 読みませたいscssファイルを指定します。
+    ]
+  },
   /*
    ** Build configuration
    */

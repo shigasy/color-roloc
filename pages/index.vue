@@ -35,7 +35,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -43,6 +43,8 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   text-align: center;
+  @include center-flex;
+  background: $color-accent;
 }
 
 .title {

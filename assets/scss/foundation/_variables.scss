@@ -1,0 +1,75 @@
+@charset "utf-8";
+// ? !default
+// 後から変数を足したとしてもそれ以前に定義されている内容であればそちらが優先される
+
+// -----------------------------------------------------
+// #color
+// -----------------------------------------------------
+$color-white: #fff !default;
+$color-bg: #f9f9f9 !default;
+$color-light-gray: #eaeaea !default;
+$color-gray: #ccc !default;
+
+$color-red: #e05243 !default;
+$color-orange: #f58536 !default;
+$color-beige: #d9a741 !default;
+$color-blue: #2e73b8 !default;
+$color-muted: #444 !default;
+$color-black: #000 !default;
+
+// フォントカラー
+$color-font: $color-black !default;
+$color-border: $color-black !default;
+$color-gap: $color-black !default;
+
+//　リンクカラー
+$color-link: #039be4 !default;
+
+$color-error: $color-red !default;
+
+// サイトカラー
+$color-main: $color-blue !default;
+$color-accent: $color-beige !default;
+$color-sub: $color-orange !default;
+
+//  SNS系統
+$twitter: #1da1f2 !default;
+
+
+// -----------------------------------------------------
+// #size
+// -----------------------------------------------------
+
+// 小さいスマホ用 320px〜375px
+// スマホ用 375px〜759px
+// iPad、タブレット用 760px〜979px
+// PC用 980px〜
+// PC Wide用 1400px
+
+// iPad width: 768px
+// iPadのようなタブレット未満をモバイルとして対応させたいなら、767px
+// タブレット以下モバイルとして対応させたいなら、979px
+$break-point: 767px !default;
+
+// 「1920px×1080px」と「1366px×768px」 「1024px×768px」がダントツでシェア
+$width-max: 1024px !default;
+
+// borderの太さ
+$width-border-form: 3px !default;
+
+// コンテンツ同士の余白や画面端との余白, 枠, 要素の境界
+$blank-space-pc: 30px !default;
+$blank-space-sp: 25px !default;
+
+$height-header-sp: 75px !default;
+$height-header-pc: 145px !default;
+$height-footer-sp: 60px !default;
+$height-footer-pc: 90px !default;
+
+$margin-sp: 20px !default;
+$margin-px: 20px !default;
+$padding-sp: 25px !default;
+$padding-pc: 50px !default;
+
+$radius: 6px !default;
+
