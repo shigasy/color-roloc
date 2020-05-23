@@ -21,7 +21,6 @@
   }
 }
 
-
 // // レイアウト幅
 // $layout-width-inner: 1180px;
 
@@ -46,14 +45,19 @@
 // -----------------------------------------------------
 @mixin center($direction: xy, $position: absolute) {
   position: $position;
+
   @if $direction==xy {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  } @else if $direction==x {
+  }
+
+  @else if $direction==x {
     left: 50%;
     transform: translateX(-50%);
-  } @else if $direction==y {
+  }
+
+  @else if $direction==y {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -61,8 +65,8 @@
 
 @mixin center-flex {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 // -----------------------------------------------------
@@ -76,6 +80,7 @@
   @include media-sp() {
     margin-top: $blank-space-sp;
   }
+
   @include media-pc() {
     margin-top: $blank-space-pc;
   }
@@ -85,6 +90,7 @@
   @include media-sp() {
     margin-right: $blank-space-sp;
   }
+
   @include media-pc() {
     margin-right: $blank-space-pc;
   }
@@ -94,6 +100,7 @@
   @include media-sp() {
     margin-bottom: $blank-space-sp;
   }
+
   @include media-pc() {
     margin-bottom: $blank-space-pc;
   }
@@ -103,11 +110,11 @@
   @include media-sp() {
     margin-left: $blank-space-sp;
   }
+
   @include media-pc() {
     margin-left: $blank-space-pc;
   }
 }
-
 
 // -----------------------------------------------------
 // #Transition
@@ -123,7 +130,8 @@
 // PCのみマウスホバーで少し透明に
 @mixin hover-fade {
   @include transition-fade;
-  @include media-pc { 
+
+  @include media-pc {
     &:hover {
       opacity: 0.7;
     }
@@ -136,12 +144,17 @@
 
 // sans serifのフォント
 @mixin font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, YuGothic, "Hiragino Sans",
-    "Meiryo", sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    YuGothic,
+    'Hiragino Sans',
+    'Meiryo',
+    sans-serif;
 }
 
 @mixin font-serif {
-  font-family: "YuMincho", "Yu Mincho", serif;
+  font-family: 'YuMincho', 'Yu Mincho', serif;
 }
 
 @mixin font-en {
@@ -152,6 +165,7 @@
 @mixin link-colors($color: $color-link) {
   color: $color;
   text-decoration: none;
+
   &:hover {
     color: lighten($color, 15%);
     text-decoration: underline;
@@ -171,27 +185,30 @@
 // * ex)
 //   @include none-appearance;
 @mixin none-appearance {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  margin: 0;
+  box-sizing: border-box;
   padding: 0;
-  border: 0;
-  border-radius: 0;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  vertical-align: middle;
   background: none transparent;
   background-clip: padding-box;
-  color: inherit;
-  font-size: inherit;
-  vertical-align: middle;
-  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
   &::-ms-clear {
-      display: none;
+    display: none;
   }
+
   &::-ms-reveal {
-      display: none;
+    display: none;
   }
+
   &::-ms-expand {
-      display: none;
+    display: none;
   }
 }
 
@@ -202,19 +219,27 @@
 @mixin triangle($color: #000, $width: 10px, $height: 10px, $dir: top) {
   width: 0;
   height: 0;
+
   @if $dir == 'top' {
-      border-width: 0 #{$width/2} #{$height} #{$width/2};
-      border-color: transparent transparent $color transparent;
-  } @else if $dir == 'bottom' {
-      border-width: #{$height} #{$width/2} 0 #{$width/2};
-      border-color: $color transparent transparent transparent;
-  } @else if $dir == 'right' {
-      border-width: #{$height/2} 0 #{$height/2} #{$width};
-      border-color: transparent transparent transparent $color;
-  } @else {
-      border-width: #{$height/2} #{$width} #{$height/2} 0;
-      border-color: transparent $color transparent transparent;
+    border-color: transparent transparent $color transparent;
+    border-width: 0 #{$width/2} #{$height} #{$width/2};
   }
+
+  @else if $dir == 'bottom' {
+    border-color: $color transparent transparent transparent;
+    border-width: #{$height} #{$width/2} 0 #{$width/2};
+  }
+
+  @else if $dir == 'right' {
+    border-color: transparent transparent transparent $color;
+    border-width: #{$height/2} 0 #{$height/2} #{$width};
+  }
+
+  @else {
+    border-color: transparent $color transparent transparent;
+    border-width: #{$height/2} #{$width} #{$height/2} 0;
+  }
+
   border-style: solid;
 }
 
@@ -226,5 +251,5 @@ $layer: (
 );
 
 @mixin z-index($key) {
-  z-index: map-get($layer, $key: $key)
+  z-index: map-get($layer, $key: $key);
 }

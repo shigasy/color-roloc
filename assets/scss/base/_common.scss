@@ -6,30 +6,34 @@ html {
 
 body {
   font-size: 1.4rem;
-  letter-spacing: 0.12em;
-  font-feature-settings: "palt";
   color: $color-font;
-  
+  letter-spacing: 0.12em;
+  font-feature-settings: 'palt';
+
   @include font-sans;
+
   @include media-sp {
     line-height: 1.7;
   }
+
   @include media-pc {
-    line-height: 1.9;
     font-size: 1.8em;
+    line-height: 1.9;
   }
 }
 
 .container {
   position: relative;
+
   @include media-sp {
     padding: 0 $blank-space-sp $blank-space-sp;
   }
+
   @include media-pc {
     max-width: $width-max;
-    margin-left: auto;
-    margin-right: auto;
     padding: 0 $blank-space-pc $blank-space-pc;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
