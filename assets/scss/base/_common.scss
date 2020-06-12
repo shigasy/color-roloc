@@ -26,12 +26,12 @@ body {
   position: relative;
 
   @include media-sp {
-    padding: 0 $blank-space-sp $blank-space-sp;
+    padding: $blank-space-sp $blank-space-sp;
   }
 
   @include media-pc {
     max-width: $width-max;
-    padding: 0 $blank-space-pc $blank-space-pc;
+    padding: $blank-space-pc $blank-space-pc;
     margin-right: auto;
     margin-left: auto;
   }
