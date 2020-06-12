@@ -1,11 +1,11 @@
 <template>
   <div>
-    <transition name="fade">
-      <div v-if="isActive" class="loading">loading</div>
-    </transition>
-    <transition name="fade">
-      <nuxt v-if="!isActive" />
-    </transition>
+    <!-- <transition name="fade"> -->
+    <!-- <div v-if="isActive" class="loading">loading</div> -->
+    <!-- </transition> -->
+    <!-- <transition name="fade"> -->
+    <nuxt />
+    <!-- </transition> -->
   </div>
 </template>
 
