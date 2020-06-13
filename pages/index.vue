@@ -1,6 +1,5 @@
 <template>
   <div>
-    <logo />
     <div class="container">
       <h1>可変長無限ループスライダー</h1>
     </div>
@@ -8,23 +7,30 @@
     <section class="order-fade-in-section">
       <order-fade-in />
     </section>
+    <scroll-fade-in-opacity
+      >透明度のみフェードイン<slider
+    /></scroll-fade-in-opacity>
+
+    <br />
+    <br />
+    <br />
+    <scroll-fade-in>下からフェードイン<slider /></scroll-fade-in>
+    <br />
+    <br />
+    <br />
+
+    <scroll-fade-in-reaction
+      >反動あり下からフェードイン <slider
+    /></scroll-fade-in-reaction>
+    <div style="height: 500px;">要素</div>
+    <div style="height: 500px;">要素</div>
   </div>
 </template>
 
 <script lang="ts">
-// TODO: v-forで回す
 import Vue from 'vue'
-import Logo from '@/components/Logo.vue'
-import Slider from '@/components/Slider.vue'
-import OrderFadeIn from '@/components/OrderFadeIn'
 
-export default Vue.extend({
-  components: {
-    Logo,
-    Slider,
-    OrderFadeIn
-  }
-})
+export default Vue.extend({})
 </script>
 
 <style lang="scss" scoped>
