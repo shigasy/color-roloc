@@ -50,14 +50,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  @else if $direction==x {
+  } @else if $direction==x {
     left: 50%;
     transform: translateX(-50%);
-  }
-
-  @else if $direction==y {
+  } @else if $direction==y {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -144,13 +140,8 @@
 
 // sans serifのフォント
 @mixin font-sans {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    YuGothic,
-    'Hiragino Sans',
-    'Meiryo',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, YuGothic, 'Hiragino Sans',
+    'Meiryo', sans-serif;
 }
 
 @mixin font-serif {
@@ -223,32 +214,19 @@
   @if $dir == 'top' {
     border-color: transparent transparent $color transparent;
     border-width: 0 #{$width/2} #{$height} #{$width/2};
-  }
-
-  @else if $dir == 'bottom' {
+  } @else if $dir == 'bottom' {
     border-color: $color transparent transparent transparent;
     border-width: #{$height} #{$width/2} 0 #{$width/2};
-  }
-
-  @else if $dir == 'right' {
+  } @else if $dir == 'right' {
     border-color: transparent transparent transparent $color;
     border-width: #{$height/2} 0 #{$height/2} #{$width};
-  }
-
-  @else {
+  } @else {
     border-color: transparent $color transparent transparent;
     border-width: #{$height/2} #{$width} #{$height/2} 0;
   }
 
   border-style: solid;
 }
-
-$layer: (
-  modal: 100,
-  header: 20,
-  tooltip: 10,
-  default: 1
-);
 
 @mixin z-index($key) {
   z-index: map-get($layer, $key: $key);

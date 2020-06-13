@@ -71,3 +71,10 @@ $padding-sp: 25px !default;
 $padding-pc: 50px !default;
 
 $radius: 6px !default;
+
+$layer: (
+  modal: 100,
+  header: 20,
+  tooltip: 10,
+  default: 1
+);
