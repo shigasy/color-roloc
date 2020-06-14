@@ -1,12 +1,11 @@
 <template>
   <div>
-    <!-- <div class="loading">loading</div> -->
-    <div
-      id="page-loading"
-      class="loading"
-      :class="{ 'loading-is-show': isLoadingTime }"
-    >
-      loading
+    <div class="loading" :class="{ 'loading-is-show': isLoadingTime }">
+      <div class="loading-wrap">
+        <cmyk
+          ><h1><span class="loading-text">web</span></h1></cmyk
+        >
+      </div>
     </div>
     <nuxt v-if="!isLoadingTime" />
   </div>
@@ -24,14 +23,6 @@ export default Vue.extend({
     setTimeout(() => {
       this.isLoadingTime = false
     }, 3000)
-  },
-  mounted() {
-    const loading = document.getElementById('page-loading')
-    if (loading) {
-      loading.onclick = () => {
-        alert('alert')
-      }
-    }
   }
 })
 </script>
@@ -64,6 +55,12 @@ export default Vue.extend({
   &-is-show {
     visibility: visible;
     opacity: 1;
+  }
+  &-wrap {
+    @include center;
+  }
+  &-text {
+    font-size: 120px;
   }
 }
 </style>

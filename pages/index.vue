@@ -3,7 +3,7 @@
     <div class="container">
       <h1>可変長無限ループスライダー</h1>
     </div>
-    <slider />
+    <slider-color />
     <section class="order-fade-in-section">
       <order-fade-in />
     </section>
@@ -14,16 +14,17 @@
     <br />
     <br />
     <br />
-    <scroll-fade-in>下からフェードイン<slider /></scroll-fade-in>
+    <scroll-fade-in>下からフェードイン<slider-color /></scroll-fade-in>
     <br />
     <br />
     <br />
 
     <scroll-fade-in-reaction
-      >反動あり下からフェードイン <slider
+      >反動あり下からフェードイン <slider-color
     /></scroll-fade-in-reaction>
     <div style="height: 500px;">要素</div>
     <div style="height: 500px;">要素</div>
+    <nuxt-link to="about">遷移 </nuxt-link>
   </div>
 </template>
 
