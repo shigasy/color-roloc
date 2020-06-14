@@ -1,11 +1,14 @@
 <template>
   <div>
-    <!-- <transition name="fade"> -->
-    <!-- <div v-if="isActive" class="loading">loading</div> -->
-    <!-- </transition> -->
-    <!-- <transition name="fade"> -->
-    <nuxt />
-    <!-- </transition> -->
+    <!-- <div class="loading">loading</div> -->
+    <div
+      id="page-loading"
+      class="loading"
+      :class="{ 'loading-is-show': isLoadingTime }"
+    >
+      loading
+    </div>
+    <nuxt v-if="!isLoadingTime" />
   </div>
 </template>
 
@@ -14,87 +17,53 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      isActive: true
+      isLoadingTime: true
     }
   },
   created() {
     setTimeout(() => {
-      this.isActive = false
-      console.log('open')
+      this.isLoadingTime = false
     }, 3000)
+  },
+  mounted() {
+    const loading = document.getElementById('page-loading')
+    if (loading) {
+      loading.onclick = () => {
+        alert('alert')
+      }
+    }
   }
 })
 </script>
 
-<style scoped>
-.trans {
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
+<style lang="scss" scoped>
 .loading {
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-}
-
-/* .loading-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: none;
-  width: 100%;
-  height: 100%;
-  background: #000;
-
-  /* animation: hideop 1s linear 0s; */
-
-/*
-@keyframes hideop {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    display: none;
-    opacity: 0;
-  }
-} */
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.is-active {
   width: 100vw;
   height: 100vh;
-  background: #868e96;
-  animation: fadeIn 3s, 3s 1s forwards;
+
+  // opacityのみだとjsで反応出来てしまうから
+  // https://medium.com/eureka-engineering/html-css-%E3%81%9F%E3%81%8B%E3%81%8C%E3%83%95%E3%82%A7%E3%83%BC%E3%83%89%E3%82%A4%E3%83%B3-%E3%83%95%E3%82%A7%E3%83%BC%E3%83%89%E3%82%A2%E3%82%A6%E3%83%88%E3%81%99%E3%82%8B%E3%81%A0%E3%81%91%E3%81%AE%E6%8C%99%E5%8B%95%E3%81%AB%E5%85%A8%E5%8A%9B%E3%81%A7%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%93%E3%81%A0%E7%B5%90%E6%9E%9C-%E6%9C%80%E5%BC%B7%E3%81%AEcss%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%97%E3%81%BE%E3%81%A3%E3%81%9F%E8%A9%B1-%E6%9C%80%E5%BC%B7-881152c4ff13#result
+  visibility: hidden;
+  background: $color-white;
+  opacity: 0;
+
+  // 時間で制御するのはJavaScriptの方だからanimationではない
+  transition: opacity 0.6s, visibility 0.6s;
+  @include z-index(loading);
+
+  /* animation: all fade-out 1s ease 3s both;
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  } */
+  &-is-show {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 </style>

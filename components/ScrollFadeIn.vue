@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <div :class="{ fade: isVisited }"> -->
     <div class="hidden" :class="{ fade: isVisited }">
       <slot></slot>
     </div>
@@ -15,6 +14,8 @@ export default {
     }
   },
   mounted() {
+    // reloadした時に、スクロールせずに表示したいから関数を実行
+    this.handleScroll()
     window.addEventListener('scroll', this.handleScroll)
   },
   beforeDestroy() {
@@ -43,7 +44,7 @@ export default {
   @keyframes fade-in {
     0% {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(60px);
     }
     100% {
       opacity: 1;
