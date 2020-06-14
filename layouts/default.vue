@@ -5,6 +5,7 @@
         <cmyk
           ><h1><span class="loading-text">web</span></h1></cmyk
         >
+        <!-- <loading /> -->
       </div>
     </div>
     <nuxt v-if="!isLoadingTime" />
@@ -20,9 +21,18 @@ export default Vue.extend({
     }
   },
   created() {
+    // 初期表示でアニメーションしたい時
+    // かなり大きめのアニメーションの場合、ローディングページ後にアニメーションをスタートされるのも1つ
     setTimeout(() => {
       this.isLoadingTime = false
-    }, 3000)
+    }, 1000)
+  },
+  mounted() {
+    // 真っ白なページの時にローディングページを表示したい時
+    // window.onload = () => {
+    //   // alert('a')
+    //   this.isLoadingTime = false
+    // }
   }
 })
 </script>
